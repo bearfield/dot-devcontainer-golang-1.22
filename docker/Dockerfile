@@ -1,7 +1,7 @@
 FROM ghcr.io/bearfield/debian-fish:bookworm
 #
 # set env
-ENV GOLANG_VERSION=1.22.0
+ENV GOLANG_VERSION=1.22.1
 ENV PATH /usr/local/go/bin:$PATH
 
 #
