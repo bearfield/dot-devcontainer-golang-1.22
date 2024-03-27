@@ -4,8 +4,10 @@
     "remoteUser": "kumano_ryo",
     "mounts": [
         "source=${localEnv:HOME}/devcontainer_conf/.gitconfig_linux,target=/home/kumano_ryo/.gitconfig,type=bind,consistency=cached",
-        "source=${localEnv:HOME}/.config/gcloud,target=/home/kumano_ryo/.config/gcloud,type=bind,consistency=cached"
+        "source=${localEnv:HOME}/.config/gcloud,target=/home/kumano_ryo/.config/gcloud,type=bind,consistency=cached",
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
     ],
+    "postStartCommand": "sudo chown root:docker /var/run/docker.sock",
     "customizations": {
         "vscode": {
             "settings": {
@@ -26,10 +28,7 @@
                 },
                 "[go]": {
                     "editor.snippetSuggestions": "none",
-                    "editor.formatOnSave": true,
-                    "editor.codeActionsOnSave": {
-                        "source.organizeImports": true
-                    }
+                    "editor.formatOnSave": true
                 },
                 "gopls": {
                     "usePlaceholders": true,
@@ -55,6 +54,8 @@
                 "github.copilot",
                 "bmalehorn.vscode-fish",
                 "github.copilot-chat",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode.makefile-tools",
                 "golang.go"
             ]
         }
